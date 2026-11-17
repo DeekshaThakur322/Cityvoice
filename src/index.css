@@ -1,10 +1,4 @@
-/* =========================================================
-   CITYVOICE MASTER DESIGN SYSTEM
-   ========================================================= */
 
-/* ---------------------------------------------------------
-   1. GLOBAL RESETS & TYPOGRAPHY
-   --------------------------------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -195,6 +189,7 @@ body {
 
 .btn-signin {
   color: #ffffff;
+  background: #2563eb;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.88rem;
@@ -220,7 +215,7 @@ body {
 }
 
 .btn-signup:hover {
-  background: #1d4ed8;
+  background:  rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
 }
 
@@ -2087,4 +2082,166 @@ body {
   font-weight: 800;
   line-height: 1;
   box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+}
+/* mobile responsive */
+@media (max-width: 768px) {
+
+  
+  html, body {
+    max-width: 100vw ;
+    overflow-x: hidden ;
+  }
+
+  /* 2. Top Navbar: 
+        */
+  .top-navbar {
+    padding: 0.6rem 0.85rem ;
+    flex-wrap: wrap ;
+    row-gap: 0.5rem ;
+    width: 100% ;
+  }
+
+  .top-nav-brand {
+    order: 1 ;
+    margin-right: auto ;
+  }
+
+  .top-nav-right {
+    order: 2 ;
+    margin-left: auto;
+  }
+
+  .top-nav-left {
+    order: 3 ;
+    width: 100%;
+    display: flex ;
+    overflow-x: auto ; /* Touch swipeable links on phones */
+    white-space: nowrap ;
+    gap: 0.4rem ;
+    padding-top: 0.4rem ;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) ;
+    scrollbar-width: none ;
+  }
+
+  .top-nav-left::-webkit-scrollbar {
+    display: none ;
+  }
+
+  .top-nav-item {
+    flex-shrink: 0 ;
+    padding: 0.35rem 0.65rem ;
+    font-size: 0.8rem ;
+  }
+
+  .nav-user-badge {
+    padding: 0.25rem 0.5rem ;
+    gap: 0.4rem ;
+  }
+
+  .nav-user-name {
+    font-size: 0.78rem ;
+  }
+
+  .btn-logout {
+    padding: 0.35rem 0.6rem ;
+    font-size: 0.75rem ;
+  }
+
+  /* 3. Home Page: Stack map on top (320px) and live feed smoothly below */
+  .home-container {
+    display: flex ;
+    flex-direction: column ;
+    height: auto ;
+    overflow: visible ;
+  }
+
+  .map-wrapper {
+    height: 320px ;
+    min-height: 320px ;
+    width: 100% ;
+  }
+
+  .leaflet-container {
+    height: 100% ;
+    width: 100% ;
+  }
+
+  .feed-wrapper {
+    width: 100% ;
+    height: auto ;
+    border-left: none ;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .feed-scroll {
+    overflow-y: visible; 
+    height: auto ;
+    padding: 1rem ;
+  }
+
+  /* 4. Dashboard: Stack cards cleanly & make table scroll on swipe */
+  .dashboard-content-flow {
+    padding: 1rem 0.75rem ;
+  }
+
+  .skyline-banner {
+    flex-direction: column ;
+    align-items: flex-start ;
+    padding: 1.25rem 1rem ;
+    gap: 0.75rem ;
+  }
+
+  .pastel-stats-grid {
+    grid-template-columns: repeat(2, 1fr) ;
+    gap: 0.75rem ;
+  }
+
+  .pastel-card {
+    padding: 1rem 0.75rem ;
+    gap: 0.75rem ;
+  }
+
+  .card-icon-circle {
+    width: 38px ;
+    height: 38px ;
+  }
+
+  .card-number {
+    font-size: 1.35rem ;
+  }
+
+  .card-label {
+    font-size: 0.75rem ;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr ;
+    gap: 1rem ;
+  }
+
+  .modern-table-card {
+    overflow-x: auto ; 
+    -webkit-overflow-scrolling: touch ;
+    width: 100% ;
+  }
+
+  .custom-data-table {
+    min-width: 620px ;
+  }
+
+  /* 5. Forms & Auth on phones */
+  .form-card-wrapper,
+  .auth-card {
+    padding: 1.25rem 1rem ;
+    margin: 0.5rem auto ;
+    width: 100% ;
+  }
+
+  .issue-main-grid {
+    grid-template-columns: 1fr ;
+  }
+
+  .photo-comparison-grid {
+    grid-template-columns: 1fr ;
+  }
 }
