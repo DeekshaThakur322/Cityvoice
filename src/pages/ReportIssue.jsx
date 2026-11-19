@@ -10,7 +10,6 @@ import {
   Upload,
   X,
   Image as ImageIcon,
-  MapPin,
   ExternalLink,
 } from "lucide-react";
 
@@ -117,28 +116,6 @@ const ReportIssue = () => {
       name === "category" ? value : updated.category,
       name === "address" ? value : updated.address,
       name === "title" ? value : updated.title
-    );
-  };
-
-  // 📍 1-Click GPS Locator
-  const handleDetectLocation = () => {
-    if (!navigator.geolocation) {
-      alert("Geolocation is not supported by your browser.");
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setFormData((prev) => ({
-          ...prev,
-          latitude: parseFloat(pos.coords.latitude.toFixed(6)),
-          longitude: parseFloat(pos.coords.longitude.toFixed(6)),
-        }));
-        alert("GPS Coordinates detected successfully! 📍");
-      },
-      (err) => {
-        alert("Unable to fetch location: " + err.message);
-      }
     );
   };
 
@@ -402,18 +379,10 @@ const ReportIssue = () => {
           />
         </div>
 
+        {/* Longitude & Latitude without Detect GPS */}
         <div className="form-coords-grid">
           <div className="form-group">
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <label>Longitude</label>
-              <button
-                type="button"
-                onClick={handleDetectLocation}
-                className="btn-detect-gps"
-              >
-                <MapPin size={12} /> Detect GPS
-              </button>
-            </div>
+            <label>Longitude</label>
             <input
               type="number"
               step="any"
@@ -493,7 +462,7 @@ const ReportIssue = () => {
           {loading
             ? "Uploading to Cloudinary & Submitting..."
             : duplicateWarning
-            ? "🚫 Submission Blocked (Duplicate Issue Detected)"
+            ? " Submission Blocked (Duplicate Issue Detected)"
             : "Submit Civic Report 📢"}
         </button>
       </form>
